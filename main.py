@@ -9,8 +9,9 @@ with open('cargacad.csv') as csv_pca:
         aula = row[7]
         hrdeci = row[9]
         prueba = type(float(hrdeci))
-        prueba2 = float(hrdeci)
+        prueba2 = float(hrdeci)*24
         horas = int(prueba2)
+        Hora_inicio = str(horas) + ':'
         #Hora_inicio = str(int(math.floor(prueba2))) + ':' + str(int((prueba2%(math.floor(prueba2)))*60)) + ':' + str(int(((prueba2%(math.floor(prueba2)))*60) % math.floor(((prueba2%(math.floor(prueba2)))*60))*60))
         Json_GCF = {
             'Llave_evento': {
@@ -34,4 +35,4 @@ with open('cargacad.csv') as csv_pca:
                 'idEvent': ''
             }
         }
-        print(horas)
+        print(Hora_inicio)
