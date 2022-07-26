@@ -1,4 +1,5 @@
 import csv
+import requests
 
 with open('cargacad.csv') as csv_pca:
     reader = csv.reader(csv_pca, delimiter=";")
@@ -49,4 +50,7 @@ with open('cargacad.csv') as csv_pca:
                 'idEvent': ''
             }
         }
-        print(Json_GCF)
+        # Envia el Json Datos_Evento, ya que pasa un id de evento, lo elimina del calendario y de forestore ademas crea una nuevo con los datos actualizados
+        resp = requests.post('https://us-central1-pca-academico.cloudfunctions.net/gcf_evento_academico-1', json=Json_GCF)
+        respuesta = resp.text
+        print(respuesta)
